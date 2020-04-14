@@ -1,0 +1,77 @@
+<html>
+<body>
+<form name="form1" method="post" onsubmit="return validateForm()">
+    <table style="height: 83px;" width="268">
+        <tbody>
+        <tr style="height: 49px;">
+            <td style="width: 56px; height: 49px; text-align: left;">&nbsp;</td>
+            <td style="width: 173.6px; height: 49px; text-align: left;">Registration</td>
+            <td style="width: 16.4px; height: 49px; text-align: left;">&nbsp;</td>
+        </tr>
+        <tr style="height: 39px;">
+            <td style="width: 82.4px; height: 39px;">&nbsp;Email&nbsp;</td>
+            <td style="width: 82.4px; height: 39px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 39px;"><input type="text" name="emailid"></td>
+        </tr>
+        <tr style="height: 17px;">
+            <td style="width: 82.4px; height: 17px;">&nbsp;Phone&nbsp;</td>
+            <td style="width: 82.4px; height: 17px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 17px;"><input type="text" name="phonenumber"></td>
+        </tr>
+        <tr style="height: 34px;">
+            <td style="width: 82.4px; height: 34px;">&nbsp;Address</td>
+            <td style="width: 82.4px; height: 34px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 34px;"><input type="text" name="address"></td>
+        </tr>
+        <tr style="height: 33px;">
+            <td style="width: 82.4px; height: 33px;">Proof Type</td>
+            <td style="width: 82.4px; height: 33px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 33px;"><select id="prooftype">
+                    <option value=0>Doc 1</option>
+                    <option value=1>Doc 2</option>
+                    <option value=2>Doc 3</option>
+
+                </select></td>
+        </tr>
+        <tr style="height: 56.4px;">
+            <td style="width: 82.4px; height: 56.4px;">Upload File</td>
+            <td style="width: 82.4px; height: 56.4px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 56.4px;"><input type="file" name="filepath">  </td>
+        </tr>
+        <tr style="height: 26px;">
+            <td style="width: 82.4px; height: 26px;">&nbsp;</td>
+            <td style="width: 82.4px; height: 26px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 26px;">&nbsp;</td>
+        </tr>
+        <tr style="height: 17px;">
+            <td style="width: 82.4px; height: 17px;">&nbsp;</td>
+            <td style="width: 82.4px; height: 17px;"><input type="submit" value="Register"></td>
+            <td style="width: 83.2px; height: 17px;">&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+<script type="text/javascript">
+    function validateForm() {
+        var x = document.forms["form1"]["emailid"].value;
+        if (x == "") {
+            alert("Email must be filled out");
+            return false;
+        }else if (document.forms["form1"]["phonenumber"].value == ""){
+            alert("Phone must be filled out");
+            return false;
+        }else if(document.forms["form1"]["filepath"].value == ""){
+            alert("File is mandatory");
+            return false;
+        }
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (reg.test(x) == false)
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+    }
+
+</script>
+</html>

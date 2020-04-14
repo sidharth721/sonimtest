@@ -1,0 +1,49 @@
+<html>
+<body>
+<form name="form1" method="post" onsubmit="return validateForm()">
+    <table style="height: 83px;" width="268">
+        <tbody>
+        <tr style="height: 49px;">
+            <td style="width: 56px; height: 49px; text-align: left;">&nbsp;</td>
+            <td style="width: 173.6px; height: 49px; text-align: left;">Login</td>
+            <td style="width: 16.4px; height: 49px; text-align: left;">&nbsp;</td>
+        </tr>
+        <tr style="height: 39px;">
+            <td style="width: 82.4px; height: 39px;">&nbsp;Username&nbsp;</td>
+            <td style="width: 82.4px; height: 39px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 39px;"><input type="text" name="emailid"></td>
+        </tr>
+        <tr style="height: 17px;">
+            <td style="width: 82.4px; height: 17px;">&nbsp;Password&nbsp;</td>
+            <td style="width: 82.4px; height: 17px;">&nbsp;</td>
+            <td style="width: 83.2px; height: 17px;"><input type="password" name="password"></td>
+        </tr>
+        <tr style="height: 17px;">
+            <td style="width: 82.4px; height: 17px;">&nbsp;</td>
+            <td style="width: 82.4px; height: 17px;"><input type="submit" value="Login"></td>
+            <td style="width: 83.2px; height: 17px;">&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+<script type="text/javascript">
+    function validateForm() {
+        var x = document.forms["form1"]["emailid"].value;
+        if (x == "") {
+            alert("Email must be filled out");
+            return false;
+        }else if (document.forms["form1"]["password"].value == ""){
+            alert("Password must be filled out");
+            return false;
+        }
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (reg.test(x) == false)
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<body>
+<form name="form1" method="post" onsubmit="return validateForm()">
+    <style>
+        .demo {
+            border:1px solid #C0C0C0;
+            border-collapse:collapse;
+            padding:5px;
+        }
+        .demo th {
+            border:1px solid #C0C0C0;
+            padding:5px;
+            background:#F0F0F0;
+        }
+        .demo td {
+            border:1px solid #C0C0C0;
+            padding:5px;
+        }
+    </style>
+    <table class="demo">
+        <caption>Exchange Rates</caption>
+        <thead>
+        <tr>
+            <th>Currency 1 </th>
+            <th>Currency 2 </th>
+            <th>Current Rate</th>
+            <th>Make Favourite</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($this->teamList as $key =>$val) {?>
+            <tr>
+                <td> <?php echo $val['team_id']; ?></td>
+                <td><?php echo $val['name']; ?></td>
+                <td><?php echo $val['currency2'] * $val['exch_rate']?></td>
+                <td><?php echo ($val['favourite'] == 1 ) ? 'Favourite' :'Not Favourite'?></td>
+            </tr>
+        <?php }?>
+        </tbody>
+    </table>
+</form>
+</body>
+<script type="text/javascript">
+    function validateForm() {
+        var x = document.forms["form1"]["emailid"].value;
+        if (x == "") {
+            alert("Email must be filled out");
+            return false;
+        }else if (document.forms["form1"]["phonenumber"].value == ""){
+            alert("Phone must be filled out");
+            return false;
+        }else if(document.forms["form1"]["filepath"].value == ""){
+            alert("File is mandatory");
+            return false;
+        }
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (reg.test(x) == false)
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+    }
+
+</script>
+</html>
